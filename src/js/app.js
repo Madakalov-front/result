@@ -5,6 +5,9 @@ import { infoStudent } from "./syntax/variable.js";
 import { car } from "./syntax/cars.js";
 import { typeOf } from "./data-type/type.js";
 import { updateVariable } from "./data-type/update-variable.js";
+import { dinamycType } from "./dinamyc-type/dinamyc.js";
+import { checkType } from "./dinamyc-type/check-type.js";
+import { checkTypeV2 } from "./dinamyc-type/check-type-v2.js";
 
 // Привет мир!
 // Задание #2 - начало
@@ -70,5 +73,20 @@ import { updateVariable } from "./data-type/update-variable.js";
 // Задание #2 - конец
 
 // Задание #3 - начало
-updateVariable()
+// updateVariable()
 // Задание #3 - конец
+
+// Динамическая типизация
+// dinamycType()
+// checkType()
+// checkTypeV2()
+// 1 - NaN
+// 2 - NaN
+// 3 - 12345
+// 4 - 'false'
+// 5 - false
+// 6 - true
+// 7 - 'undefined'
+// 8 - NaN
+// 9 - 100
+// 10 - 1

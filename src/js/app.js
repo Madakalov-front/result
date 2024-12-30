@@ -1,10 +1,15 @@
+import {timer} from './hello-world/timer.js';
+import {promptList} from './hello-world/prompt.js';
+import {jsInfo} from './hello-world/js-info.js';
+
 // Задание #2 - начало
-const timer = (count) => {
-    console.log("Запускаем таймер");
-    for (let i = 1; i <= count; i++) {
-      alert(i);
-    }
-    console.log("Обратный отсчет закончен");
-  };
 // timer(5);
 // Задание #2 - конец
+
+// Задание #3 - начало
+// jsInfo()
+// Задание #3 - конец
+
+// Задание #4 - начало
+// promptList()
+// Задание #4 - конец

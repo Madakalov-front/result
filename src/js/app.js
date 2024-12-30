@@ -3,6 +3,9 @@ import { promptList } from "./hello-world/prompt.js";
 import { jsInfo } from "./hello-world/js-info.js";
 import { infoStudent } from "./syntax/variable.js";
 import { car } from "./syntax/cars.js";
+import { typeOf } from "./data-type/type.js";
+import { updateVariable } from "./data-type/update-variable.js";
+
 // Привет мир!
 // Задание #2 - начало
 // timer(5);
@@ -48,3 +51,24 @@ import { car } from "./syntax/cars.js";
 // console.log(question2, "Ответ:", answer1);
 // console.log(question3, "Ответ:", answer2);
 // Задание #5 - конец
+
+// Типы данных
+// Задание #1 -начало
+// typeOf()
+// Задание #1 -конец
+
+// Задание #2 - начало
+// let num = 101,
+//   str = "105",
+//   boolean = false;
+//   num = String(num),
+//   str = +str,
+//   boolean = null;
+//   alert(typeof num)
+//   alert(typeof str)
+//   alert(typeof boolean)
+// Задание #2 - конец
+
+// Задание #3 - начало
+updateVariable()
+// Задание #3 - конец

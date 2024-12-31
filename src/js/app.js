@@ -8,6 +8,7 @@ import { updateVariable } from "./data-type/update-variable.js";
 import { dinamycType } from "./dinamyc-type/dinamyc.js";
 import { checkType } from "./dinamyc-type/check-type.js";
 import { checkTypeV2 } from "./dinamyc-type/check-type-v2.js";
+import { concatStr, promptUser, strSlice, wordSlice } from "./string/string.js";
 
 // Привет мир!
 // Задание #2 - начало
@@ -90,3 +91,10 @@ import { checkTypeV2 } from "./dinamyc-type/check-type-v2.js";
 // 8 - NaN
 // 9 - 100
 // 10 - 1
+
+
+// Строки
+// concatStr()
+// promptUser()
+// strSlice()
+// wordSlice()

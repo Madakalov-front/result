@@ -10,7 +10,7 @@ export const concatStr = () => {
       Я хочу стать веб-разработчиком, потому что ${reasonText}. 
       До этого я изучал ${programmingLanguage} ${numberOfMonth} месяцa. 
       Я уверен, что пройду данный курс до конца!»`;
-    myInfoText = myInfoText.replaceAll("JS", "js");
+    myInfoText = myInfoText.replaceAll("JS", "js").replaceAll('курс', 'КУРС');
     console.log(myInfoText);
     console.log(myInfoText.length, myInfoText[0], myInfoText.at(-1));
 };

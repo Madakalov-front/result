@@ -10,7 +10,7 @@ import { checkType } from "./dinamyc-type/check-type.js";
 import { checkTypeV2 } from "./dinamyc-type/check-type-v2.js";
 import { concatStr, promptUser, strSlice, wordSlice } from "./string/string.js";
 import { checkUser, cicle, confirmLearn, sumRange, testChildren } from "./base/base.js";
-import { changeStr } from "./dop-week-1/dop-1.js";
+import { changeStr, clientPay, passwordUser } from "./dop-week-1/dop-1.js";
 
 // Привет мир!
 // Задание #2 - начало
@@ -111,3 +111,6 @@ import { changeStr } from "./dop-week-1/dop-1.js";
 
 // Дополнительные 
 // changeStr()
+// clientPay('Игорь', 110, 25)
+// clientPay('Игорь', 'NaN', 25)
+// passwordUser('1234F')

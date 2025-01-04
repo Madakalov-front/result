@@ -9,7 +9,13 @@ import { dinamycType } from "./dinamyc-type/dinamyc.js";
 import { checkType } from "./dinamyc-type/check-type.js";
 import { checkTypeV2 } from "./dinamyc-type/check-type-v2.js";
 import { concatStr, promptUser, strSlice, wordSlice } from "./string/string.js";
-import { checkUser, cicle, confirmLearn, sumRange, testChildren } from "./base/base.js";
+import {
+    checkUser,
+    cicle,
+    confirmLearn,
+    sumRange,
+    testChildren,
+} from "./base/base.js";
 import { changeStr, clientPay, passwordUser } from "./dop-week-1/dop-1.js";
 
 // Привет мир!
@@ -94,13 +100,11 @@ import { changeStr, clientPay, passwordUser } from "./dop-week-1/dop-1.js";
 // 9 - 100
 // 10 - 1
 
-
 // Строки
 // concatStr()
 // promptUser()
 // strSlice()
 // wordSlice()
-
 
 // Основы
 // checkUser
@@ -109,7 +113,7 @@ import { changeStr, clientPay, passwordUser } from "./dop-week-1/dop-1.js";
 // cicle()
 // sumRange(0, 100)
 
-// Дополнительные 
+// Дополнительные
 // changeStr()
 // clientPay('Игорь', 110, 25)
 // clientPay('Игорь', 'NaN', 25)

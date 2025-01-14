@@ -40,7 +40,7 @@ export const getSumOfNumbers = (number, type = "odd") => {
 
 export const getDivisorsCount = (number) => {
     if (!number || Number.isNaN(Number(number))) return NaN;
-    if( number  < 0 || !Number.isInteger(number)) alert(`${number} должен быть целым числом и больше нуля!`);
+    if(number  < 0 || !Number.isInteger(number)) alert(`${number} должен быть целым числом и больше нуля!`);
     // const divider = []
     let count = 0;
 

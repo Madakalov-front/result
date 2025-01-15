@@ -8,6 +8,7 @@ import {
     getSumOfSequence,
     updatePrices,
 } from "./week_2/array/array.js";
+import { checkQuestionAnswer, checkTextOnErrorSymbol, showErrorMessage, showSuccessMessage } from "./week_2/dop/dop_week_2-function.js";
 import {
     getDivisorsCount,
     getSumOfNumbers,
@@ -37,4 +38,11 @@ import {
 // checkCoffees('CapPuCciNo')
 // updatePrices([1.5, 1, 2], ['Latte', 'Cappuccino', 'Americano']);
 // askClientToGiveEstimation();
-cubingArray([10, 4, 100, -5, 54, 2]);
+// cubingArray([10, 4, 100, -5, 54, 2]);
+
+// Dop_week_2
+// checkQuestionAnswer('Арбуз это фрукт или ягода?', 'ЯгОда');
+// checkQuestionAnswer('Сколько в среднем зубов у взрослого человека?', '321');
+// checkQuestionAnswer('Как называется самая маленькая птица в мире?', 'КолиБри');
+// const text = 'Привет! Как дела! Давно мы с тобой не виделись.'; 
+// checkTextOnErrorSymbol(text, 'а', showSuccessMessage, showErrorMessage);

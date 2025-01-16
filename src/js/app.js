@@ -8,7 +8,18 @@ import {
     getSumOfSequence,
     updatePrices,
 } from "./week_2/array/array.js";
-import { checkQuestionAnswer, checkTextOnErrorSymbol, showErrorMessage, showSuccessMessage } from "./week_2/dop/dop_week_2-function.js";
+import {
+    concatArray,
+    createMatrixArray,
+    getMathResult,
+    matchAnalysis,
+} from "./week_2/dop/dop_week_2-array.js";
+import {
+    checkQuestionAnswer,
+    checkTextOnErrorSymbol,
+    showErrorMessage,
+    showSuccessMessage,
+} from "./week_2/dop/dop_week_2-function.js";
 import {
     getDivisorsCount,
     getSumOfNumbers,
@@ -44,5 +55,23 @@ import {
 // checkQuestionAnswer('Арбуз это фрукт или ягода?', 'ЯгОда');
 // checkQuestionAnswer('Сколько в среднем зубов у взрослого человека?', '321');
 // checkQuestionAnswer('Как называется самая маленькая птица в мире?', 'КолиБри');
-// const text = 'Привет! Как дела! Давно мы с тобой не виделись.'; 
+// const text = 'Привет! Как дела! Давно мы с тобой не виделись.';
 // checkTextOnErrorSymbol(text, 'а', showSuccessMessage, showErrorMessage);
+
+// matchAnalysis([8, 1, 1, 3, 2, -1, 5])
+// getMathResult(['200', '+', 300]); // 500
+// getMathResult(['20', '-', '5']); // 15
+// getMathResult([100, '/', 100]); // 1
+// getMathResult([2, '-', 2]); // 0
+// getMathResult(['5', '>', '10']); // false
+// getMathResult(['5', '<', '10']); // true
+// getMathResult(['1', '=', 1]); // true
+// getMathResult(['1', '**', 1]); // 'Ошибка'
+// getMathResult(['+', '100', 10]); // 'Ошибка'
+// getMathResult(['100', 'hello', 'javascript', 'help200', '+', 4]); //  104
+// console.log(createMatrixArray(3, 5))
+// console.log(concatArray([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+// ]));

@@ -46,7 +46,7 @@ export const checkTextOnErrorSymbol = (
     const checkSymbolInText = checkSymbol(text, errorSymbol);
     if (checkSymbolInText >= 0) {
         errorCallback(
-            `Найден запрещенный символ ${errorSymbol} под индексом ${checkSymbolInText}`
+            `Найден запрещенный символ "${errorSymbol}" под индексом ${checkSymbolInText}`
         );
     } else {
         successCallback(`В данном тексте нет запрещенных символов`);

@@ -16,6 +16,7 @@ export const setGetName = () => {
 export const getSumOfNumbers = (number, type = "odd") => {
 
     if (!number || Number.isNaN(Number(number))) return NaN;
+    if(!Number.isInteger(number) || number < 0) alert(`${number} должен быть целым числом и больше нуля!`)
 
     let count = null;
 

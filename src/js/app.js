@@ -75,3 +75,4 @@ import {
 //     [4, 5, 6],
 //     [7, 8, 9],
 // ]));
+// console.log(concatArray(createMatrixArray(3, 5)));

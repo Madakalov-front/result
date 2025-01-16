@@ -36,8 +36,6 @@ export const matchAnalysis = (matches) => {
 
     const sortGoals = [...matches].sort((a, b) => a - b);
     alert(sortGoals);
-    console.log(sortGoals);
-    console.log(matches);
 };
 
 export const getMathResult = (expression) => {
@@ -81,9 +79,8 @@ export const createMatrixArray = (row, col) => {
         for (let i = 0; i < len; i++) arr.push(i);
         return arr;
     };
-    return (matrixArray(row)).map(item => matrixArray(col));
+    return (matrixArray(row)).map(_ => matrixArray(col));
 };
-
 
 export const concatArray = (array) => {
     return array.reduce((a,b) => a.concat(b),[]);

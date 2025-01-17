@@ -85,3 +85,4 @@ export const createMatrixArray = (row, col) => {
 export const concatArray = (array) => {
     return array.reduce((a,b) => a.concat(b),[]);
 }
+

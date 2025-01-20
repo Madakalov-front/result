@@ -77,14 +77,3 @@ import {
 // ]));
 // console.log(concatArray(createMatrixArray(3, 5)));
 
-let a = 10;
-
-function updateLet() {
-    a = 30;
-}
-function updateLetV(a) {
-    a += 30;
-}
-
-updateLet()
-updateLetV(a)

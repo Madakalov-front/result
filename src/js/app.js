@@ -76,3 +76,33 @@ import {
 //     [7, 8, 9],
 // ]));
 // console.log(concatArray(createMatrixArray(3, 5)));
+const checkOnlineUsers = () => {
+    const filterOnlineUsers = (users) => {
+        return users.filter(obj => obj.status === 'online');
+    }
+
+    const printOnlineUsers = (users) => {
+        const listNameUsers = users.map(user => user.username)
+        alert(`Сейчас в онлайн следующие пользователи: ${listNameUsers.join(', ')}`)
+    }
+
+    const filteredUsers = filterOnlineUsers([
+        {
+            username: 'David',
+            status: 'online',
+            lastActivity: 10
+        },
+        {
+            username: 'Lucy',
+            status: 'offline',
+            lastActivity: 22
+        },
+        {
+            username: 'Bob',
+            status: 'online',
+            lastActivity: 104
+        }
+    ]);
+
+    printOnlineUsers(filteredUsers)
+}

@@ -5,7 +5,8 @@ const checkOnlineUsers = () => {
     }
 
     const printOnlineUsers = (users) => {
-        for (const user of users) alert(`Сейчас в онлайн следующие пользователи: ${user.username}`)
+        const listNameUsers = users.map(user => user.username).join(', ')
+        alert(`Сейчас в онлайн следующие пользователи: ${listNameUsers}`)
     }
 
     const filteredUsers = filterOnlineUsers([

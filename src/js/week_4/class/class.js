@@ -53,6 +53,7 @@ const dictionary = () => {
             this.words = {}
         }
         add(word, description) {
+            if(word in this.words) return;
             this.words[word] = {
                 word,
                 description,
@@ -83,7 +84,8 @@ const dictionary = () => {
             super(name);
         }
         add(word, description, isDifficult) {
-            this.words[{}] = {
+            if (word in this.words) return
+            this.words[word] = {
                 word,
                 description,
                 isDifficult,

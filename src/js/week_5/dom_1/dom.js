@@ -82,7 +82,6 @@ const createForm = () => {
 };
 
 const todoList = () => {
-
     class TodoList {
         static defaultTasks() {
             return [
@@ -106,10 +105,13 @@ const todoList = () => {
         constructor(tasks) {
             this.tasks = tasks || TodoList.defaultTasks()
             this.addTask = document.querySelector('.create-task-block__button');
+            this.taskBlock = document.querySelector('.create-task-block');
+            this.modal = document.querySelector('.modal-overlay');
         }
 
         createLabel(data) {
             const label = document.createElement('label');
+            label.className = 'task-item';
             label.htmlFor = data.id;
             return label;
         }
@@ -126,6 +128,13 @@ const todoList = () => {
             const span = document.createElement('span')
             span.textContent = data.text
             span.classList.add('task-item__text')
+            return span
+        }
+
+        createSpanError(text) {
+            const span = document.createElement('span')
+            span.textContent = text
+            span.classList.add('error-message-block')
             return span
         }
 
@@ -149,6 +158,7 @@ const todoList = () => {
         }
 
         insertTasksContainer() {
+            this.taskBlock.querySelector('.error-message-block')?.remove()
             document.querySelector('.tasks-list').innerHTML = ''
             document.querySelector('.tasks-list').append(...this.generatedListTasks(this.tasks))
         }
@@ -162,27 +172,84 @@ const todoList = () => {
             return Date.now()
         }
 
+        setErrorMessage(message) {
+            const errorSpan = this.createSpanError(message)
+            this.taskBlock.querySelector('.error-message-block')?.remove()
+            this.taskBlock.append(errorSpan)
+        }
+
         updateTasksList() {
+            const text = this.getValueInput();
+            if (!text.trim()) {
+                const message = 'Название задачи не должно быть пустым';
+                this.setErrorMessage(message)
+                return;
+            }
+            const checkedValue = this.checkIncludeTask(text)
+            if (checkedValue) {
+                const message = 'Задача с таким названием уже существует.';
+                this.setErrorMessage(message)
+                return
+            }
             const newTask = {
                 id: this.getID(),
-                text: this.getValueInput(),
+                text: text,
                 completed: false,
             }
             this.tasks.push(newTask)
             this.insertTasksContainer();
         }
 
-        deleteTask() {
+        deleteTask(idTasks) {
+            c
+            document.querySelector(`label[for="${idTasks}"]`)?.remove()
+            this.tasks = this.tasks.filter(task => task.id !== idTasks)
+        }
+
+        confirmDelete(idTasks) {
+            this.modal.classList.remove('modal-overlay_hidden')
+            this.modal.addEventListener('click', (e) => {
+                const cancel = e.target.closest('.delete-modal__cancel-button');
+                const confirm = e.target.closest('.delete-modal__confirm-button');
+                const overlay = e.target.closest('.modal-overlay');
+                if (confirm) {
+                    console.log(confirm)
+                    this.modal.classList.add('modal-overlay_hidden')
+                    this.deleteTask(idTasks)
+                    return
+                }
+                if (cancel) {
+                    this.modal.classList.add('modal-overlay_hidden')
+                    return
+                }
+                if (overlay) {
+                    this.modal.classList.add('modal-overlay_hidden')
+                    return
+                }
+            })
+        }
+
+
+        checkIncludeTask(value) {
+            return this.tasks.find(task => task.text === value)
+        }
+
+        completedTask() {
             const container = document.querySelector('.tasks-list');
 
             if (!container) throw new Error('Container undefined!')
 
             container.addEventListener('click', (e) => {
+
                 const label = e.target.closest('label');
+                if (!label) {
+                    return
+                }
+
                 const removeBtn = e.target.closest('button');
                 const inputElem = label.querySelector('input');
 
-                if(inputElem.checked) {
+                if (inputElem.checked) {
                     label.classList.add('delete')
                 } else {
                     label.classList.remove('delete')
@@ -190,14 +257,13 @@ const todoList = () => {
 
                 if (removeBtn) {
                     const idTasks = label.querySelector('input').dataset.taskId
-                    this.tasks = this.tasks.filter(task => task.id !== idTasks)
-                    label.remove()
+                    this.confirmDelete(idTasks)
                 }
             })
         }
 
         render() {
-            this.deleteTask();
+            this.completedTask();
             this.insertTasksContainer();
             this.addTask.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -209,4 +275,50 @@ const todoList = () => {
 
     const todoList = new TodoList()
     todoList.render()
+}
+
+const tab = () => {
+    class Theme {
+        constructor() {
+            this.theme = 'light';
+            this.tab = document.querySelector('#tab');
+            this.bodyBG = '#24292E';
+            this.fontColor = '#ffffff';
+            this.initialStyle = 'initial';
+            this.borderStyle = '1px solid #ffffff';
+        }
+
+        checkNodeList(nodeList) {
+            const isArray = Array.from(nodeList)
+            return isArray.length
+        }
+
+        addStyledForNodeList(nodeList, styleName, styleValue) {
+            const checkedNodeList = this.checkNodeList(nodeList)
+            const isArray = Array.from(nodeList)
+            if (!checkedNodeList) return false;
+            console.log(isArray)
+            for (const node of isArray) {
+                node.style[styleName] = styleValue;
+            }
+            return nodeList;
+        }
+
+        clickTab() {
+            this.tab.addEventListener('click', () => {
+                this.theme = 'dark'
+                if (this.theme === 'dark') {
+                    document.body.style.backgroundColor = this.bodyBG;
+                    const taskItems = document.querySelectorAll('.task-item');
+                    this.addStyledForNodeList(taskItems, 'color', this.fontColor);
+                    const btns = document.querySelectorAll('button');
+                    this.addStyledForNodeList(btns, 'border', this.borderStyle)
+                } else {
+                    document.body.style.backgroundColor = this.initialStyle
+                }
+            })
+        }
+    }
+    const theme = new Theme()
+    theme.clickTab()
 }

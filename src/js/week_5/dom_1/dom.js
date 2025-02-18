@@ -1,85 +1,55 @@
 const createForm = () => {
-    document.body.innerHTML = `
-    <form class="create-user-form">
-        <label>
-            Имя
-            <input type="text" name="userName" placeholder="Введите ваше имя">
-        </label>
-        <label>
-            Пароль
-            <input type="password" name="password" placeholder="Придумайте Пароль">
-        </label>
-        <button type="submit">
-            Подтвердить
-        </button>
-    </form>`;
-
-    const dataForm = [
-        {
-            label: " Имя ",
-            input: {
-                type: "text",
-                name: "userName",
-                placeholder: "Введите ваше имя",
+    const getDataForm = () => {
+        return [
+            {
+                label: " Имя ",
+                input: {
+                    type: "text",
+                    name: "userName",
+                    placeholder: "Введите ваше имя",
+                },
             },
-        },
-        {
-            label: " Пароль ",
-            input: {
-                type: "password",
-                name: "password",
-                placeholder: "Придумайте Пароль",
+            {
+                label: " Пароль ",
+                input: {
+                    type: "password",
+                    name: "password",
+                    placeholder: "Придумайте Пароль",
+                },
             },
-        },
-    ];
-
-    class Form {
-        constructor(data) {
-            this.data = data;
-        }
-        renderSubmit() {
-            const submit = document.createElement('button')
-            submit.type = 'submit';
-            submit.textContent = 'Подтвердить'
-            return submit;
-        }
-        renderForm(className) {
-            const form = document.createElement('form');
-            form.classList.add(className);
-            return form
-        }
-        renderLabel(data) {
-            if (!data) return;
-            const label = document.createElement('label');
-            label.textContent = data.label ?? 'Пусто';
-            return label
-        }
-        renderInput(data) {
-            if (!data) return;
-            console.log(data)
-            const input = document.createElement('input');
-            input.type = data.input.type ?? 'Пусто';
-            input.name = data.input.name ?? 'Пусто';
-            input.placeholder = data.input.placeholder ?? 'Пусто';
-            return input
-        }
-        render() {
-            const form = this.renderForm('create-user-form')
-            const submit = this.renderSubmit();
-            for(const item of this.data) {
-                const label  = this.renderLabel(item);
-                const input = this.renderInput(item);
-                label.appendChild(input)
-                form.appendChild(label)
-            }
-            form.appendChild(submit)
-            document.body.appendChild(form)
-        }
+        ];
     }
-
-    const form = new Form(dataForm);
-    form.render()
+    function createElem(tag, attrs) {
+        if(!tag || tag.trim() === '') return null;
+        const elem = document.createElement(tag);
+        if(!attrs) {
+            return elem
+        } else if(typeof attrs === 'string'){
+            elem.textContent =  attrs;
+            return elem 
+        }
+        for(const attr in attrs) {
+            elem[attr] = attrs[attr]
+        }
+        return elem
+    }
+    function render() {
+        const form = createElem('form', {className: 'create-user-form'});
+        const submit = createElem('button', {type: 'submit', textContent: 'Подтвердить'});
+        const dataForm = getDataForm();
+        for (const item of dataForm) {
+            const label = createElem("label", item.label);
+            const input = createElem("input", item.input);
+            label.appendChild(input)
+            form.appendChild(label)
+        }
+        form.appendChild(submit)
+        document.body.appendChild(form)
+    }
+    render()
 };
+
+createForm()
 
 const todoList = () => {
     class TodoList {

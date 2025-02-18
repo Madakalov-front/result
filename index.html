@@ -1,43 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./src/css/style.css">
-    <script type="module" src="./src/js/app.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise + fetch</title>
+  <link rel="stylesheet" href="./src/css/style.css"></link>
 </head>
-
 <body>
-    <div id="tasks">
-        <div class="tasks__wrapper">
-            <form class="create-task-block">
-                <input name="taskName" class="create-task-block__input default-text-input" type="text"
-                    placeholder="Создайте новую задачу" value="Посмотреть урок по JavaScript">
-                <button type="submit" class="create-task-block__button default-button">
-                    Создать
-                </button>
-            </form>
-            <div class="tasks-list"></div>
-        </div>
-    </div>
-    <div class="modal-overlay modal-overlay_hidden">
-        <div class="delete-modal">
-            <h3 class="delete-modal__question">
-                Вы действительно хотите удалить эту задачу?
-            </h3>
-            <div class="delete-modal__buttons">
-                <button class="delete-modal__button delete-modal__cancel-button">
-                    Отмена
-                </button>
-                <button class="delete-modal__button delete-modal__confirm-button">
-                    Удалить
-                </button>
-            </div>
-        </div>
-    </div>
-    <button id="tab">Tab</button>
+  <h1>Promise + fetch</h1>
+  <ol id="data-container">
+    <span id="loader" hidden>Loading...</span>
+  </ol>
+  <script src="./src/js/app.js" type="module"></script>
 </body>
-
 </html>

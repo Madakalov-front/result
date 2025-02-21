@@ -7,7 +7,6 @@ export const fetchQuest = () => {
         return [1, 3, 9, 6, 7]
     }
     const createItemUser = (nameUser) => {
-        console.log(nameUser)
         const elListItem = document.createElement('li');
         const elLinkItem = document.createElement('a');
         elLinkItem.textContent = nameUser;
@@ -88,7 +87,6 @@ export const fastFetchPhoto = () => {
 
     const renderFastPhoto = async () => {
         const { title, url } = await getFastestLoadedPhoto(arr())
-        console.log(title, url)
         document.querySelector('#data-container').appendChild(createPhotoItem(url, title))
     }
     renderFastPhoto()

@@ -51,7 +51,7 @@ const quest_3 = () => {
         return `https://jsonplaceholder.typicode.com/albums`
     }
     
-    const renderContainerList = (title) => {
+    const renderContainerList = () => {
         const elemOl = document.createElement('ol');
         elemOl.classList.add('data-container');
         return elemOl;

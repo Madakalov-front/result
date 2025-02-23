@@ -8,8 +8,8 @@ const getUrlComments = () => {
 
 const createElement = ({ tagName = 'div', className = '', textContent = '', parent = null } = {}) => {
     const elemTitle = document.createElement(tagName);
-    elemTitle.className = className ?? 'null';
-    elemTitle.textContent = textContent ?? 'null';
+    elemTitle.className = className || '';
+    elemTitle.textContent = textContent || '';
     parent?.appendChild(elemTitle)
     return elemTitle;
 }
@@ -35,8 +35,9 @@ const renderPost = async (idPost) => {
             fetch(`${getUrlComments()}/?postId=${idPost}`)
         ])
 
-        if (responses.some(response => !response.ok)) {
-            throw new Error(`Error HTTP: ${responses.find(response => !response.ok).status}`);
+        const errorResponse = responses.find(response => !response.ok);
+        if (errorResponse) {
+            throw new Error(`Error HTTP: ${errorResponse.status}, ${errorResponse}`);
         }
 
         let [bodyPost, commentsPost] = responses;

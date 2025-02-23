@@ -16,7 +16,7 @@ const createElement = ({ tagName = 'div', className = '', textContent = '', pare
 
 const renderCommentPost = (arrayComments) => {
     const containerComments = createElement({ tagName: 'div', className: 'post-post__comments'})
-    arrayComments.map(comment => {
+    arrayComments.forEach(comment => {
         const itemComments = createElement({ tagName: 'div', className: 'post-comment', textContent: '', parent: containerComments })
         const emailComments = createElement({ tagName: 'span', className: 'post-comment__author', textContent: comment.email, parent: itemComments })
         const descComments = createElement({ tagName: 'span', className: 'post-comment__text', textContent: comment.body, parent: itemComments })
@@ -48,7 +48,7 @@ const renderPost = async (idPost) => {
         createElement({ tagName: 'p', className: 'post__text', textContent: bodyPost.body, parent: elemPost });
         createElement({ tagName: 'b', className: 'post__comments-text', textContent: 'Комментарии', parent: elemPost });
         elemPost.appendChild(renderCommentPost(commentsPost))
-        document.body.append(elemPost)
+        document.body.prepend(elemPost)
 
         return [bodyPost, commentsPost];
     } catch (error) {

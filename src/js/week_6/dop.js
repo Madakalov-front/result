@@ -15,18 +15,18 @@ const createElement = ({ tagName = 'div', className = '', textContent = '', pare
 }
 
 const renderCommentPost = (arrayComments) => {
-    const containerComments = createElement({ tagName: 'div', className: 'post-post__comments'})
+    const containerComments = createElement({ tagName: 'div', className: 'post-post__comments' })
     arrayComments.forEach(comment => {
         const itemComments = createElement({ tagName: 'div', className: 'post-comment', textContent: '', parent: containerComments })
-        const emailComments = createElement({ tagName: 'span', className: 'post-comment__author', textContent: comment.email, parent: itemComments })
-        const descComments = createElement({ tagName: 'span', className: 'post-comment__text', textContent: comment.body, parent: itemComments })
+        createElement({ tagName: 'span', className: 'post-comment__author', textContent: comment.email, parent: itemComments })
+        createElement({ tagName: 'span', className: 'post-comment__text', textContent: comment.body, parent: itemComments })
     })
     return containerComments;
 }
 
 const renderPost = async (idPost) => {
     const elemPost = document.createElement('div');
-    elemPost.id = 'post'
+    elemPost.id = `post-${idPost}`
     elemPost.classList.add('post');
     try {
         console.log('start')
@@ -40,9 +40,7 @@ const renderPost = async (idPost) => {
             throw new Error(`Error HTTP: ${errorResponse.status}, ${errorResponse}`);
         }
 
-        let [bodyPost, commentsPost] = responses;
-        bodyPost = await bodyPost.json()
-        commentsPost = await commentsPost.json()
+        let [bodyPost, commentsPost] = await Promise.all(responses.map(res => res.json()));
 
         createElement({ tagName: 'h1', className: 'post__title', textContent: bodyPost.title, parent: elemPost });
         createElement({ tagName: 'p', className: 'post__text', textContent: bodyPost.body, parent: elemPost });
@@ -59,4 +57,4 @@ const renderPost = async (idPost) => {
     }
 }
 
-renderPost(38)
+renderPost(22)

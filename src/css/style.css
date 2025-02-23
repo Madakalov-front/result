@@ -1,62 +1,69 @@
 :root {
     --text-shadow-color: rgba(255, 255, 255, 0.5);
-    --link-background: #DAD2CA;
+    --link-background: #dad2ca;
     --text-color: #444;
-    --circle-background: #8FD4C1;
+    --circle-background: #8fd4c1;
     --border-color: #ffffff;
 }
-
 
 body {
     background: var(--main-background);
     display: flex;
     flex-direction: column;
     align-items: center;
-  
+
     max-height: 100vh;
     height: 100vh;
     padding: 0;
     margin: 0;
-  }
-  
-  #post {
+}
+
+.posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-content: center;
+    position: relative;
+    min-height: 100vh;
+    height: 100%;
+}
+
+[id^="post-"] {
     background: var(--post-background);
     width: 65%;
     height: 100%;
     padding: 20px;
-  
+
     display: flex;
     flex-direction: column;
     overflow: hidden;
-  }
-  
-  .post__title {
+}
+
+.post__title {
     margin: 5px 0;
-  }
-  
-  .post__comments-text {
+}
+
+.post__comments-text {
     margin-bottom: 10px;
     border-bottom: 1px solid;
-  }
-  
-  .post__comments {
+}
+
+.post__comments {
     overflow: auto;
-  }
-  
-  .post-comment {
+}
+
+.post-comment {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-  }
-  
-  .post-comment__author {
+}
+
+.post-comment__author {
     font-style: italic;
-  }
-  
+}
 
 #data-container {
-    counter-reset: li; 
-    list-style: none; 
+    counter-reset: li;
+    list-style: none;
     font: 14px "Trebuchet MS", "Lucida Sans";
     padding: 0;
     text-shadow: 0 1px 0 var(--text-shadow-color);
@@ -65,13 +72,13 @@ body {
 #data-container a {
     position: relative;
     display: block;
-    padding: .4em .4em .4em 2em;
-    margin: .5em 0;
+    padding: 0.4em 0.4em 0.4em 2em;
+    margin: 0.5em 0;
     background: var(--link-background);
     color: var(--text-color);
     text-decoration: none;
-    border-radius: .3em;
-    transition: .3s ease-out;
+    border-radius: 0.3em;
+    transition: 0.3s ease-out;
 }
 
 #data-container a:hover {
@@ -93,9 +100,40 @@ body {
     height: 2em;
     width: 2em;
     line-height: 2em;
-    border: .3em solid var(--border-color);
+    border: 0.3em solid var(--border-color);
     text-align: center;
     font-weight: bold;
     border-radius: 2em;
-    transition: all .3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0);
+  }
+   100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;   
+    background: #fff;
+}
+
+.loader::before {
+  content: '';
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 3px solid black;
+  border-right-color: transparent;
+  animation: loader 1s linear infinite forwards;
 }

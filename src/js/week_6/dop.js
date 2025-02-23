@@ -60,5 +60,3 @@ const renderPost = async (idPost) => {
 }
 
 renderPost(38)
-renderPost(5)
-renderPost(25)

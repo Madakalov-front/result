@@ -1,0 +1,41 @@
+.calc {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	max-width: 650px;
+	gap: 10px;
+	font-size: 22px;
+}
+
+.num, .operat {
+	display: flex;
+	gap: 10px;
+	&__item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-block: 25px;
+		padding-inline: 25px;
+		border: 1px solid #ccc;
+	}
+}
+
+.num {
+	flex-wrap: wrap;
+	&__item {
+		flex-grow: 1;
+		flex-basis: calc( 33.33% - 10px);
+	}
+}
+
+.operat {
+	flex-direction: column;
+}
+
+
+.value {
+	grid-area: 1 / 1 / 2 / 3;
+	display: flex;
+	padding-block: 10px;
+	padding-inline: 15px;
+	border: 1px solid #ccc;
+}

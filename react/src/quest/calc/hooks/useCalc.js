@@ -4,41 +4,48 @@ export const useCalc = () => {
 	const [displayValue, setDisplayValue] = useState("");
 	const [storedValue, setStoredValue] = useState(null);
 	const [currentOperation, setCurrentOperation] = useState(null);
+	const [wasEqualsPressed, setWasEqualsPressed] = useState(false);
 	const lastOperation = useRef(null);
+
 
 	const handleNumberInput = (num) => {
 		setDisplayValue(prev => prev + num);
 	};
 
 	const handleOperation = (op) => {
-		if (op === "c") {
-			setDisplayValue("");
-			setStoredValue(null);
-			setCurrentOperation(null);
-			lastOperation.current = null;
-			return;
-		}
+    if (op === "c") {
+        setDisplayValue("");
+        setStoredValue(null);
+        setCurrentOperation(null);
+        lastOperation.current = null;
+        setWasEqualsPressed(false);
+        return;
+    }
 
-		if (op === "=") {
-			if (currentOperation && storedValue !== null) {
-				calculateResult();
-			}
-			return;
-		}
+    if (op === "=") {
+        if (currentOperation && storedValue !== null) {
+            calculateResult(null);
+            setWasEqualsPressed(true);
+        }
+        return;
+    }
 
+    if (wasEqualsPressed) {
+        setStoredValue(Number(displayValue));
+        setDisplayValue("");
+        setWasEqualsPressed(false);
+    } else if (currentOperation && storedValue !== null) {
+        calculateResult(op);
+    } else {
+        setStoredValue(Number(displayValue));
+        setDisplayValue("");
+    }
 
-		if (currentOperation && storedValue !== null) {
-			calculateResult();
-		} else {
-			setStoredValue(Number(displayValue));
-			setDisplayValue("");
-		}
+    setCurrentOperation(op);
+    lastOperation.current = op;
+};
 
-		setCurrentOperation(op);
-		lastOperation.current = op;
-	};
-
-	const calculateResult = () => {
+	const calculateResult = (nextOperation = null) => {
 		if (storedValue === null || !currentOperation) return;
 
 		let result;
@@ -57,7 +64,7 @@ export const useCalc = () => {
 
 		setDisplayValue(result.toString());
 		setStoredValue(result);
-		setCurrentOperation(null);
+		setCurrentOperation(nextOperation);
 	};
 
 	const onChangeInput = (e) => {
@@ -69,5 +76,6 @@ export const useCalc = () => {
 		onNumValue: (e) => handleNumberInput(e.target.textContent),
 		checkOperant: (e) => handleOperation(e.target.textContent),
 		value: displayValue,
+		wasEqualsPressed,
 	};
 };

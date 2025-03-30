@@ -8,12 +8,12 @@ import { useCalc } from "./hooks/useCalc";
 export const Calc = () => {
 
 
-	const { onChangeValue, onNumValue, checkOperant, value } = useCalc();
+	const { onChangeValue, onNumValue, checkOperant, value, wasEqualsPressed } = useCalc();
 
 	return (
 		<>
 			<div className={style.calc}>
-				<InputValue value={value} onChange={onChangeValue} />
+				<InputValue value={value} onChange={onChangeValue} wasEqualsPressed={wasEqualsPressed} />
 				<ListNumber onClick={onNumValue} />
 				<ListOperant onClick={checkOperant} />
 			</div>

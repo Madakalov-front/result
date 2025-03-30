@@ -6,9 +6,9 @@ import { Instruction } from "./quest/instruction";
 function App() {
 	return (
 		<>
-			{/* <Calc /> */}
+			<Calc />
 			{/* <InputValue /> */}
-			<Instruction />
+			{/* <Instruction /> */}
 		</>
 	);
 }

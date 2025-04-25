@@ -1,0 +1,7 @@
+@function rem($px, $base: 16) {
+    @return calc($px / $base) * 1rem;
+  }
+  
+  @function rgba-color($color, $alpha) {
+    @return rgba($color, $alpha);
+  }

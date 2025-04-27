@@ -8,7 +8,7 @@
 
 html {
     font-size:rem(16);
-    @include respond(xxl) {
+    @include respond(xl) {
         font-size: 0.8333vw;
     }
 }
@@ -17,4 +17,6 @@ body {
     display: grid;
     grid-template-rows: 1fr;
     place-items: center;
+    font-family: var(--font-main);
+    color: var(--dark);
 }

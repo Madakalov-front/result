@@ -3,7 +3,7 @@ import React from "react";
 export interface InputProps
     extends React.InputHTMLAttributes<HTMLInputElement> {
     title?: string;
-    value: string;
+    value?: string;
     name: string;
     type?: "text" | "password";
     error: string;

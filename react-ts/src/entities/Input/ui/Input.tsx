@@ -1,6 +1,6 @@
 import styles from "../style/input.module.scss";
 import type { InputProps } from "../types";
-import { clsx } from 'clsx';
+import { clsx } from "clsx";
 
 export const Input = ({
     value,
@@ -9,22 +9,22 @@ export const Input = ({
     name,
     title,
     placeholder,
-    valid = false,
+    valid,
     onChange,
     onBlur,
     onBeforeInput,
 }: InputProps) => {
-
     const errorClass = error && styles.label_error;
-    const validClass = valid && styles.label_valid;
+    const validClass = valid === true && styles.label_valid;
+    const invalidClass = valid === false && styles.label_invalid;
 
     return (
         <label
             htmlFor={name + "-field"}
-            className={clsx(styles.label, errorClass, validClass)}
+            className={clsx(styles.label, errorClass, validClass, invalidClass)}
             data-error-message={error}
         >
-            {title && title + ':'}
+            {title && title + ":"}
             <input
                 type={type}
                 name={name}

@@ -1,11 +1,11 @@
-import { AuthFormVanilla } from "@/widgets/AuthFormVanila";
+// import { AuthFormVanilla } from "@/widgets/AuthFormVanilla";
 import "./App.scss";
 
 function App() {
 
     return (
         <>
-            <AuthFormVanilla />
+            {/* <AuthFormVanilla /> */}
         </>
     );
 }

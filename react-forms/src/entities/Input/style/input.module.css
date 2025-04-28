@@ -1,0 +1,53 @@
+.field {
+  font-size: toRem(22);
+
+  background-color: var(--light);
+
+  & + & {
+    margin-top: toRem(24);
+  }
+  &--valid {
+    border-color: var(--primary);
+  }
+  &--error {
+    position: relative;
+    border-color: var(--error);
+
+    &::after {
+      content: attr(data-error-message);
+      position: absolute;
+      bottom: 0;
+      left: toRem(4);
+      transform: translateY(100%);
+      color: var(--error);
+      font-size: toRem(14);
+    }
+  }
+  &:has(input:focus),
+  &:has(input:not(:empty)) {
+    border-color: var(--dark);
+  }
+  &__label {
+    display: grid;
+    row-gap: toRem(2);
+    font-size: toRem(14);
+    opacity: 0.8;
+  }
+  &__input {
+    background-color: transparent;
+    border: 0;
+    font-size: toRem(18);
+    text-align: center;
+    border-radius: var(--border-radius);
+    border: toRem(2) solid var(--grey);
+    padding-inline: toRem(12);
+    padding-block: toRem(8);
+    &::placeholder {
+      color: var(--grey);
+    }
+    &--text {
+    }
+    &--password {
+    }
+  }
+}

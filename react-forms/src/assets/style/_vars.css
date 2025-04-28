@@ -1,0 +1,25 @@
+:root {
+  --dark: #333333;
+  --light: #ffffff;
+  --grey: #c4c4c4;
+  --error: #ff0000;
+  --primary: #55d400;
+  --accent: #ffae00;
+  --blue: #34baeb;
+  --blue-100: #1a8db8;
+  --border-radius: toRem(12);
+  --border: toRem(1) solid var(--dark);
+
+  --duration: 0.185s;
+  --ease: ease-out;
+
+  --lh: 1.5;
+
+  --mq-mobile: 576;
+  --mq-mobileXL: 640;
+  --mq-tabletM: 743;
+  --mq-tablet: 991;
+  --mq-tabletXL: 1180;
+  --mq-laptop: 1440;
+  --mq-desktop: 1920;
+}

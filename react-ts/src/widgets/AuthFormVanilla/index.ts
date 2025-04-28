@@ -1,0 +1,1 @@
+export { AuthFormVanilla } from './ui/AuthFormVanilla';

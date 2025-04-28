@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import styles from "../style/selected-cell.module.scss";
 import { v4 as uuid4 } from "uuid";
-import { PlayerTurn } from "@/quest/xo/app/shared/types/types";
 
 type SelectedCellDisplayProps = {
 	cellArray: string[][];

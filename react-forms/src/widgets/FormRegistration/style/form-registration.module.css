@@ -1,0 +1,11 @@
+.form-registration-wrapper {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+.form-registration {
+  padding-block: toRem(48);
+  padding-inline: toRem(32);
+  border: var(--border);
+  border-radius: var(--border-radius);
+}

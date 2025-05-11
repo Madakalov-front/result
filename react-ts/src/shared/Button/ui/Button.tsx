@@ -1,10 +1,11 @@
 import clsx from "clsx";
 import { ButtonProps } from "../type";
 import styles from '../style/btn.module.scss'
+import { memo } from "react";
 
-export const Button = ({
+export const Button = memo(({
     text,
-    type,
+    type='button',
     disabled,
     onClick,
     variant = "default",
@@ -21,4 +22,4 @@ export const Button = ({
             {text}
         </button>
     );
-};
+});

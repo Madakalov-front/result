@@ -19,4 +19,10 @@ body {
     place-items: center;
     font-family: var(--font-main);
     color: var(--dark);
+    line-height: 1.3;
+}
+
+input, button {
+    outline: 0;
+    border-radius: var(--border-radius);
 }

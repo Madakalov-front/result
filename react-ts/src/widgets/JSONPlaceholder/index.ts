@@ -1,0 +1,1 @@
+export { JSONPlaceholder } from './ui/JSONPlaceholder';

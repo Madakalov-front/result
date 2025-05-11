@@ -1,13 +1,15 @@
-// import { AuthFormVanilla } from "@/widgets/AuthFormVanilla";
+// import { JSONPlaceholder } from "@/widgets/JSONPlaceholder";
+// import { JSONServer } from "@/widgets/JSONServer";
+import { Firebase } from "@/widgets/Firebase/ui/Firebase";
 import "./App.scss";
 
-function App() {
+export function App() {
 
     return (
         <>
-            {/* <AuthFormVanilla /> */}
+            {/* <JSONPlaceholder /> */}
+            {/* <JSONServer /> */}
+            <Firebase />
         </>
     );
 }
-
-export default App;

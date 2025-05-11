@@ -1,6 +1,6 @@
-import { defineConfig } from "vite";
+import {  defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import path from 'path';
+import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -13,8 +13,8 @@ export default defineConfig({
             "@features": path.resolve(__dirname, "src/features"),
             "@widgets": path.resolve(__dirname, "src/widgets"),
             "@pages": path.resolve(__dirname, "src/pages"),
-          },
-      },
+        },
+    },
     css: {
         preprocessorOptions: {
             scss: {
@@ -27,5 +27,12 @@ export default defineConfig({
     },
     server: {
         open: true,
+        proxy: {
+            "/api": {
+                target: "http://localhost:3001",
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api/, ""),
+            },
+        },
     },
 });

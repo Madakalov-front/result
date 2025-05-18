@@ -1,0 +1,12 @@
+.field {
+    padding-block: 10px;
+    padding-inline: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.field__input {
+}
+
+.field__input--text {
+}

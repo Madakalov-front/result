@@ -1,6 +1,6 @@
 // import { JSONPlaceholder } from "@/widgets/JSONPlaceholder";
 // import { JSONServer } from "@/widgets/JSONServer";
-import { Firebase } from "@/widgets/Firebase/ui/Firebase";
+// import { Firebase } from "@/widgets/Firebase/ui/Firebase";
 import "./App.scss";
 
 export function App() {
@@ -9,7 +9,7 @@ export function App() {
         <>
             {/* <JSONPlaceholder /> */}
             {/* <JSONServer /> */}
-            <Firebase />
+            {/* <Firebase /> */}
         </>
     );
 }

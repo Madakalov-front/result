@@ -1,0 +1,13 @@
+.player-turn {
+	font-size: 1.125rem;
+	&__current {
+		font-weight: 700;
+		font-size: 1.25rem;
+		&--x {
+			color: red;
+		}
+		&--o {
+			color: greenyellow
+		}
+	}
+}

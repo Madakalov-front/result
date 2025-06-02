@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: inherit;
+    color: inherit;
+}
+
+html {
+    font-size:rem(16);
+    @include respond(xl) {
+        font-size: 0.8333vw;
+    }
+}
+
+body {
+    display: grid;
+    grid-template-rows: 1fr;
+    place-items: center;
+    font-family: var(--font-main);
+    color: var(--dark);
+    line-height: 1.3;
+}
+
+input, button {
+    outline: 0;
+    border-radius: var(--border-radius);
+}

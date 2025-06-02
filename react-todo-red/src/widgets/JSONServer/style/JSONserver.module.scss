@@ -1,0 +1,52 @@
+.card-todo {
+    height: 100%;
+    display: grid;
+    row-gap: rem(32);
+    padding: rem(24);
+    border: rem(1) solid var(--dark);
+    border-radius: var(--border-radius);
+    // .card-todo__desc
+
+    &__desc {
+        position: relative;
+        font-size: rem(18);
+    }
+
+    // .card-todo__actions
+
+    &__actions {
+        display: flex;
+        column-gap: rem(10);
+        button {
+            margin-top: 0;
+        }
+    }
+}
+
+.todo-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: rem(16);
+    row-gap: rem(8);
+    list-style: none;
+    margin-top: rem(24);
+    // .todo-list__item
+
+    &__item {
+    }
+}
+
+.formAdd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: rem(12);
+    margin-block: rem(24);
+    button {
+        margin: 0;
+    }
+    input {
+        padding-block: rem(8);
+        padding-inline: rem(12);
+    }
+}

@@ -1,0 +1,50 @@
+.JSONPlaceholder {
+    padding-inline: rem(36);
+}
+.list-todos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: rem(8) rem(14);
+    list-style: none;
+    
+    // .list-todos__item
+
+    &__item {
+        animation: fadeIn 0.5s ease-out forwards;
+        padding-block: rem(10);
+        padding-inline: rem(14);
+        border-radius: var(--border-radius);
+        border: rem(1) solid rgba(var(--dark-rgba), 0.5);
+        font-size: rem(14);
+        opacity: 0;
+        @for $i from 1 through 200 {
+            &:nth-child(#{$i}) {
+              animation-delay: #{($i - 1) * 0.05}s;
+            }
+          }
+    }
+
+    // .list-todos-title
+    &-title {
+        font-size: rem(36);
+        text-align: center;
+        font-weight: 600;
+        margin-bottom: rem(24);
+        span {
+            color: var(--error-color);
+        }
+    }
+}
+
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(5%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
